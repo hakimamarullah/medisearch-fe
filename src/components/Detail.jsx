@@ -1,9 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import Highlighter from 'react-highlight-words'
 
 const Detail = () => {
     const { doc_id } = useParams()
     const { score, content } = JSON.parse(localStorage.getItem(doc_id))
+    const query = localStorage.getItem('q')
     return (
         <div className='detail'>
             <div className="detail__header">
@@ -18,7 +20,13 @@ const Detail = () => {
             </div>
 
             <div className="detail__content">
-                <p>{content}</p>
+                <Highlighter
+                    highlightClassName='highlight-word'
+                    className='hai'
+                    autoEscape={true}
+                    searchWords={query.split(/\s/).filter(word => word)}
+                    textToHighlight={content}
+                />
             </div>
         </div>
     )

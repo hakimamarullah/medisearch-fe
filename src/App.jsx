@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import './App.css'
 import SearchPage from './pages/SearchPage'
 import DetailPage from './pages/DetailPage'
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,7 +14,7 @@ const App = () => {
           element={localStorage.getItem('q') ?
             <SearchPage /> :
             <Navigate to={'/'} replace />} />
-        <Route exact path='/detail/:doc_id' element={<DetailPage/>}/>
+        <Route exact path='/detail/:doc_id' element={<DetailPage />} />
       </Routes>
     </BrowserRouter>
   )

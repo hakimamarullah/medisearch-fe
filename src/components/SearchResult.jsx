@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import Highlighter from 'react-highlight-words'
 
 const SearchResult = (props) => {
     const navigate = useNavigate()
+    const query = localStorage.getItem('q')
     const trimText = (text) => {
         if (text.length > 200) {
             return text.substring(0, 200).trimEnd() + " ..."
@@ -13,9 +15,9 @@ const SearchResult = (props) => {
     }
 
     const handleSeeDetail = (e) => {
-      e.preventDefault();
-      localStorage.setItem(props.doc_id, JSON.stringify(props))
-      navigate(`/detail/${props.doc_id}`)
+        e.preventDefault();
+        localStorage.setItem(props.doc_id, JSON.stringify(props))
+        navigate(`/detail/${props.doc_id}`)
     }
 
     useEffect(() => {
@@ -32,13 +34,18 @@ const SearchResult = (props) => {
                 <div className="card__title">
                     {props.top ? <h5>Top Result</h5> : <></>}
                     <Link to={'/'} onClick={(e) => handleSeeDetail(e)}>
-                      {props.top ?  `${props.doc_id}` : `Document with ID: ${props.doc_id}`}
+                        {props.top ? `${props.doc_id}` : `Document with ID: ${props.doc_id}`}
                     </Link>
                 </div>
             </div>
 
             <div className="card__content">
-                {props.top ? <p>{props.content}</p> : <p>{trimText(props.content)}</p>}
+                {props.top ? <p>{props.content}</p> : <Highlighter
+                    highlightClassName='highlight-word'
+                    autoEscape={true}
+                    searchWords={query.split(/\s/).filter(word => word)}
+                    textToHighlight={trimText(props.content)}
+                />}
             </div>
         </div>
 

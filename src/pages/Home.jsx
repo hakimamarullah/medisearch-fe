@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import Search from '../components/Search'
 
 const Home = () => {
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.clear();
   }, [])
   return (
-   <div className="home">
-     <Search/>
-   </div>
+    <div className="home">
+      <Search />
+    </div>
   )
 }
 
