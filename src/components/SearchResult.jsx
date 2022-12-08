@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const SearchResult = (props) => {
     const [fullText, setFullText] = useState(props.content);
@@ -12,7 +12,9 @@ const SearchResult = (props) => {
         }
     }
     const handleSeeDetail = (e) => {
-      
+      e.preventDefault();
+      localStorage.setItem(props.doc_id, fullText)
+      return <Navigate to={`/details/${props.doc_id}`}/>
     }
 
     return (

@@ -15,14 +15,21 @@ const SearchPage = () => {
         localStorage.setItem('q', e.target.value);
     }
 
+    const topDoc = () =>{
+        return JSON.parse(localStorage.getItem('top'))
+    }
+
     const search = async (e) => {
         e.preventDefault();
         setPage(1)
         const start = performance.now()
         axios.get(`http://localhost:9009/search?q=${query}&page=${page}&size=10`)
             .then((res) => {
-                setResults(res.data.items); console.log(res.data.page);
-                setTotal(res.data.total)
+                setResults(res.data.items);
+                setTotal(res.data.total);
+                if (page === 1){
+                    localStorage.setItem('top', JSON.stringify(res.data.items[0]))
+                }
             })
             .catch((err) => console.log(err))
         const end = performance.now()
@@ -37,10 +44,14 @@ const SearchPage = () => {
             .then((res) => {
                 setResults(res.data.items);
                 setTotal(res.data.total);
+                if (page === 1){
+                    localStorage.setItem('top', JSON.stringify(res.data.items[0]))
+                }
             })
             .catch((err) => console.log(err))
         const end = performance.now()
         setQueryTime(end - start)
+       
     }, [page])
 
     return (
@@ -75,7 +86,7 @@ const SearchPage = () => {
                     ))}
                 </div>
                 <div className="top-document">
-                    <SearchResult score={results[0]?.score} doc_id={results[0]?.doc_id} content={results[0]?.contents} top/>
+                    <SearchResult score={topDoc()?.score} doc_id={topDoc()?.doc_id} content={topDoc()?.contents} top/>
                 </div>
             </div>
             <div className="page-navigation">
