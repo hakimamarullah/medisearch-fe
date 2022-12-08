@@ -230,9 +230,74 @@ body {
 p {
     text-align: justify;
     text-justify: inter-word;
+    line-height: 20pt;
+}
+
+.detail p {
+    text-indent: 40px;
+    letter-spacing: 0.5px;
 }
 
 .shadow {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 30px;
+}
+
+
+.detail_page {
+    width: 100%;
+    margin: 30px auto;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 60px 60px 60px;
+    top:0;
+}
+
+.detail__header {
+    top:0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.detail__title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail__header hr {
+    margin-bottom: 5px;
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.detail__span {
+    margin-bottom: 20px;
+}
+
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scroll {
+
+    --offset-bottom: auto !important;
+
+    --overflow: hidden;
+
+    overflow: auto;
 }

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { FaSistrix, FaMicrophone } from 'react-icons/fa'
 import { useState } from 'react'
 
