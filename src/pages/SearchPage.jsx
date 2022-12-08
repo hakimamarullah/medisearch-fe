@@ -75,7 +75,7 @@ const SearchPage = () => {
                     ))}
                 </div>
                 <div className="top-document">
-                    <SearchResult score={0.6} doc_id={'MED_2345'} content={"This is content"} />
+                    <SearchResult score={results[0]?.score} doc_id={results[0]?.doc_id} content={results[0]?.contents} top/>
                 </div>
             </div>
             <div className="page-navigation">
