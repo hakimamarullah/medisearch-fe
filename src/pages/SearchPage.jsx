@@ -62,7 +62,7 @@ const SearchPage = () => {
             .catch((err) => console.log(err))
         const end = performance.now()
         setQueryTime(end - start)
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
 
     return (
