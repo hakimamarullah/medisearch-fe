@@ -1,11 +1,14 @@
-import React from 'react'
-import Homepage from '../components/Homepage'
+import React, { useEffect } from 'react'
+import Search from '../components/Search'
 
 const Home = () => {
+  useEffect(()=>{
+    localStorage.clear();
+  }, [])
   return (
-    <div>
-       <Homepage/>
-    </div>
+   <div className="home">
+     <Search/>
+   </div>
   )
 }
 
