@@ -181,6 +181,14 @@ body {
     width: 100%;
 }
 
+.top-document {
+    padding: 0;
+}
+
+.top-document .card {
+    padding: 15px;
+}
+
 .card__title {
     margin-bottom: 5px;
     font-size: 25px;
@@ -293,8 +301,26 @@ p {
     text-align: justify;
     text-indent: 40px;
     text-justify: inter-word;
-    font-size: 11pt;
+    font-size: 16px;
     letter-spacing: 1px;
+}
+
+.shadow .card__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card__header {
+    padding: 8px 0 0 0;
+}
+
+.shadow .card__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .footer {
@@ -375,13 +401,16 @@ p {
         flex-flow: column-reverse;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 0 10px 10px 10px;
+        margin-top: 1px;
 
     }
 
     .top-document {
-        margin: 1px auto;
+        margin: 0 auto;
+       
     }
+
 
     .results-list {
         margin: auto;
@@ -413,6 +442,22 @@ p {
     .description {
         margin-bottom: 2px;
     }
+
+    .home_icon {
+        font-size: 25pt;
+        text-transform: uppercase;
+    }
+
+    .card {
+        padding: 0 15px 15px 15px;
+        width: 100%;
+    }
+    
+    .detail {
+        padding: 0 25px 25px 25px;
+    }
+
+   
 
 
     ::-webkit-scrollbar,
