@@ -1,4 +1,6 @@
 # Getting Started with Create React App
+[![Netlify Status](https://api.netlify.com/api/v1/badges/964baa2b-77f7-47b6-add4-5dacb2bfa120/deploy-status)](https://app.netlify.com/sites/medisearchengine/deploys)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
