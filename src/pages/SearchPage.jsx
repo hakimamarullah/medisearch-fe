@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SearchPage = () => {
     const [page, setPage] = useState(1);
-    const [query, setQuery] = useState(localStorage.getItem('q'))
+    const [query, setQuery] = useState(sessionStorage.getItem('q'))
     const [total, setTotal] = useState(0)
     const [queryTime, setQueryTime] = useState(0)
     const [results, setResults] = useState([])
@@ -17,11 +17,11 @@ const SearchPage = () => {
 
     const persistQuery = (e) => {
         setQuery(e.target.value)
-        localStorage.setItem('q', e.target.value);
+        sessionStorage.setItem('q', e.target.value);
     }
 
     const topDoc = () => {
-        return JSON.parse(localStorage.getItem('top'))
+        return JSON.parse(sessionStorage.getItem('top'))
     }
 
     const goHome = (e) => {
@@ -38,7 +38,7 @@ const SearchPage = () => {
                 setResults(res.data.items);
                 setTotal(res.data.total);
                 if (page === 1) {
-                    localStorage.setItem('top', JSON.stringify(res.data.items[0]))
+                    sessionStorage.setItem('top', JSON.stringify(res.data.items[0]))
                 }
             })
             .catch((err) => console.log(err))
@@ -54,7 +54,7 @@ const SearchPage = () => {
             .then((res) => {
                 setResults(res.data.items);
                 if (page === 1) {
-                    localStorage.setItem('top', JSON.stringify(res.data.items[0]))
+                    sessionStorage.setItem('top', JSON.stringify(res.data.items[0]))
                     setTotal(res.data.total);
                 }
             })

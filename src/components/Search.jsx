@@ -7,7 +7,7 @@ const Search = () => {
 
   const persistQuery = (e) => {
     setQuery(e.target.value)
-    localStorage.setItem('q', e.target.value);
+    sessionStorage.setItem('q', e.target.value);
   }
 
   return (

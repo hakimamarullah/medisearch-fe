@@ -4,7 +4,7 @@ import Highlighter from 'react-highlight-words'
 
 const SearchResult = (props) => {
     const navigate = useNavigate()
-    const query = localStorage.getItem('q')
+    const query = sessionStorage.getItem('q')
     const trimText = (text) => {
         if (text.length > 200) {
             return text.substring(0, 200).trimEnd() + " ..."
@@ -16,12 +16,12 @@ const SearchResult = (props) => {
 
     const handleSeeDetail = (e) => {
         e.preventDefault();
-        localStorage.setItem(props.doc_id, JSON.stringify(props))
+        sessionStorage.setItem(props.doc_id, JSON.stringify(props))
         navigate(`/detail/${props.doc_id}`)
     }
 
     useEffect(() => {
-        localStorage.removeItem(props.doc_id)
+        sessionStorage.removeItem(props.doc_id)
     }, [props.doc_id])
     return (
 
