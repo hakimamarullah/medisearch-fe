@@ -14,7 +14,7 @@ const Search = () => {
 
     <div className="search">
       <div className="app__logo">
-        <h1 className="app_icon">Medisearch</h1>
+        <h1 className="app_icon home_icon">Medisearch</h1>
       </div>
       <form action='/search' className="search__form">
         <input type="text" className="search__input" value={query} onChange={persistQuery} required />
