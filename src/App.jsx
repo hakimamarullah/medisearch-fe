@@ -11,7 +11,7 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/search'
-          element={localStorage.getItem('q') ?
+          element={sessionStorage.getItem('q') ?
             <SearchPage /> :
             <Navigate to={'/'} replace />} />
         <Route exact path='/detail/:doc_id' element={<DetailPage />} />

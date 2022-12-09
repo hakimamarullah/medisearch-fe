@@ -4,8 +4,8 @@ import Highlighter from 'react-highlight-words'
 
 const Detail = () => {
     const { doc_id } = useParams()
-    const { score, content } = JSON.parse(localStorage.getItem(doc_id))
-    const query = localStorage.getItem('q')
+    const { score, content } = JSON.parse(sessionStorage.getItem(doc_id))
+    const query = sessionStorage.getItem('q')
     return (
         <div className='detail'>
             <div className="detail__header">

@@ -3,7 +3,7 @@ import Search from '../components/Search'
 
 const Home = () => {
   useEffect(() => {
-    localStorage.clear();
+    sessionStorage.clear();
   }, [])
   return (
     <div className="home">
